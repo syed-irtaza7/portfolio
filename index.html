@@ -171,7 +171,7 @@
     .hero .meta .meta-pill:nth-child(1){grid-column:1;grid-row:1}
     .hero .meta .meta-pill:nth-child(3){grid-column:2;grid-row:1}
     .hero .meta .meta-pill:nth-child(2){grid-column:1/-1;grid-row:2}
-    .core-skills-list{white-space:nowrap}
+    .core-skills-list{white-space:nowrap;font-size:13px;letter-spacing:0}
     .core-skills-list .cs-line{display:inline;white-space:nowrap}
     .core-skills-list .cs-line + .cs-line::before{content:"· "}
     .float-row{max-width:430px;margin-left:auto;margin-right:auto}
@@ -186,7 +186,10 @@
     .core-skills-list{font-size:12px;letter-spacing:0}
   }
   @media(max-width:960px){
-    .core-skills-list .cs-line{display:block;white-space:nowrap}
+    .core-skills{align-items:center}
+    .core-skills-label{align-self:center}
+    .core-skills-list{text-align:center}
+    .core-skills-list .cs-line{display:block;white-space:nowrap;text-align:center}
   }
 
   .ticker{border-bottom:1px solid var(--line);background:var(--surface);overflow:hidden;position:relative;z-index:1}
