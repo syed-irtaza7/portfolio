@@ -310,8 +310,12 @@
   .snap-item .v small{display:block;font-weight:400;color:var(--ink2);font-size:13px}
   .snap-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line-soft)}
   .snap-actions .btn{flex:1 1 auto;justify-content:center;text-align:center}
-  .btn-dark{background:var(--navy);color:#fff}
+  .btn-dark{background:var(--navy);color:#fff;border-color:rgba(255,255,255,.14);box-shadow:0 8px 20px rgba(8,28,56,.22)}
   .btn-dark:hover{background:#0d2c56}
+  @media (prefers-color-scheme: dark){
+    .btn-dark{background:linear-gradient(92deg,#1d6fe0,#12a3c7);border-color:rgba(125,185,255,.55);box-shadow:0 10px 24px rgba(23,140,200,.38)}
+    .btn-dark:hover{background:linear-gradient(92deg,#2b7ef0,#17b3d9)}
+  }
   .btn-outline{background:var(--surface);color:var(--ink);border-color:var(--line)}
   .btn-outline:hover{border-color:var(--accent);color:var(--accent-ink)}
   .contact .details{color:#d6e7f7;font-size:14.5px;margin-top:14px;line-height:1.8}
