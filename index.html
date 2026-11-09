@@ -12,10 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#f2f5fb; --bg2:#e8eef7; --surface:#ffffff; --surface2:#eef2f8;
+    --bg:#f2f5fb; --surface:#ffffff; --surface2:#eef2f8;
     --ink:#0a1a2e; --ink2:#3a4d68; --muted:#657a94;
     --line:#d5deec; --line-soft:#e4eaf3;
-    --navy:#081c38; --blue:#1d6fe0; --cyan:#14b8d4;
+    --navy:#081c38; --blue:#1d6fe0;
     --accent:#0f6ad8; --accent-ink:#0a55b3;
     --chip:#e8eff9;
     --shadow:0 12px 34px rgba(8,28,56,.09);
@@ -25,7 +25,7 @@
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#050e1d; --bg2:#071627; --surface:#0a1c33; --surface2:#0d2442;
+      --bg:#050e1d; --surface:#0a1c33; --surface2:#0d2442;
       --ink:#eef4fb; --ink2:#bfd2e6; --muted:#8ca3bc;
       --line:#1c3357; --line-soft:#142a48;
       --accent:#4da3ff; --accent-ink:#7db9ff;
@@ -43,7 +43,6 @@
   h1,h2,h3{font-family:"Sora",system-ui,sans-serif;line-height:1.12;margin:0}
   a{color:var(--accent-ink)}
   .wrap{max-width:1160px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
-  .mono{font-family:"JetBrains Mono",monospace}
   section[id]{scroll-margin-top:92px}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
@@ -58,7 +57,6 @@
   .brand-mark{width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:linear-gradient(135deg,#0a2a52,#1d6fe0 55%,#14b8d4);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Sora",sans-serif;font-weight:800;font-size:15px;letter-spacing:-.02em;box-shadow:0 8px 20px rgba(29,111,224,.32),inset 0 1px 0 rgba(255,255,255,.35)}
   .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
   .brand-name{font-family:"Sora",sans-serif;font-weight:800;font-size:16.5px;letter-spacing:-.02em;white-space:nowrap}
-  .brand-name em{font-style:normal;color:var(--accent)}
   .brand-sub{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-top:2px}
   .navlinks{display:flex;align-items:center;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:0 4px 16px rgba(8,28,56,.06)}
   .navlinks a{color:var(--ink2);text-decoration:none;font-size:13.5px;font-weight:600;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:all .15s ease}
@@ -164,23 +162,8 @@
   .portrait-frame::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 90% 65% at 50% 0%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 65% at 50% 0%,#000,transparent 75%)}
   .portrait-frame img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:97%;width:auto;max-width:none;filter:drop-shadow(0 16px 26px rgba(0,0,0,.45))}
   .portrait-frame .fade{position:absolute;left:0;right:0;bottom:0;height:64px;background:linear-gradient(180deg,transparent,rgba(6,22,43,.5));pointer-events:none}
-  .p-badge{position:absolute;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(9,28,54,.72);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:600;color:#eaf3fd;box-shadow:0 12px 26px rgba(0,0,0,.35);white-space:nowrap}
-  .p-badge .dot{width:8px;height:8px;border-radius:50%;background:#34d399;flex:0 0 8px}
-  .p-badge b{color:#2fd3f2;font-family:"Sora";font-weight:700}
-  .p-badge.top{top:-15px;right:20px}
-  .p-badge.bottom{bottom:-15px;left:20px}
-  @media (prefers-reduced-motion: no-preference){.p-badge{animation:floaty 6s ease-in-out infinite}.p-badge.bottom{animation-delay:-3s}}
-  @media(max-width:960px){.portrait-stage{max-width:350px}.p-badge.top{right:12px}.p-badge.bottom{left:12px}}
-  @media(max-width:380px){.portrait-stage{max-width:310px}.p-badge{font-size:11.5px;padding:7px 11px}}
-  .browser{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:#0b213f;box-shadow:0 34px 70px rgba(0,0,0,.5),0 6px 18px rgba(0,0,0,.35);transform-style:preserve-3d;will-change:transform}
-  .browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.09)}
-  .browser-bar i{width:10px;height:10px;border-radius:50%;display:block}
-  .browser-bar .url{margin-left:8px;font-family:"JetBrains Mono",monospace;font-size:11px;color:#8fb0d0;background:rgba(255,255,255,.07);border-radius:6px;padding:3px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .browser img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center}
-  .browser-cap{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px 16px;background:rgba(255,255,255,.04)}
-  .browser-cap b{font-family:"Sora";font-size:14px;color:#fff;display:block}
-  .browser-cap span{font-size:12px;color:#9db9d6}
-  .live-tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;color:#34d399;border:1px solid rgba(52,211,153,.4);background:rgba(52,211,153,.1);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  @media(max-width:960px){.portrait-stage{max-width:350px}}
+  @media(max-width:380px){.portrait-stage{max-width:310px}}
   .float-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
   .float-card{border:1px solid rgba(255,255,255,.14);background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.04));backdrop-filter:blur(10px);border-radius:14px;padding:14px 16px}
   @media (prefers-reduced-motion: no-preference){.float-card{animation:floaty 6s ease-in-out infinite}.float-card:last-child{animation-delay:-3s}}
@@ -813,7 +796,7 @@
       window.addEventListener('resize', function(){ if (window.innerWidth > 900) closeMenu(); });
     }
 
-    /* progress + nav shadow + back-to-top */
+    /* progress + nav shadow */
     var progress = document.getElementById('progress');
     var nav = document.getElementById('siteNav');
     function onScroll(){
