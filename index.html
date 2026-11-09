@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Syed Muhammad Irtaza Shahid — Portfolio</title>
+<meta name="description" content="Portfolio of Syed Muhammad Irtaza Shahid — software engineer, co-founder of SketchToStack, building web platforms, mobile apps, POS systems and AI tools." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f4f6fa; --bg2:#e9edf5; --surface:#ffffff; --surface2:#eef2f8;
+    --ink:#0d1b2e; --ink2:#3c4c63; --muted:#66788f;
+    --line:#d7dfea; --line-soft:#e3e9f2;
+    --navy:#0a1f3d; --blue:#1d6fe0; --cyan:#17b6d6;
+    --accent:#0f6ad8; --accent-ink:#0b57b5;
+    --chip:#e7eef8;
+    --shadow:0 10px 30px rgba(10,31,61,.08);
+    --hero-bg:linear-gradient(135deg,#081a33 0%,#0a2a52 55%,#0b3a5c 100%);
+    --tile-a:#0d2c52; --tile-b:#0e5a74;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#060f1e; --bg2:#081627; --surface:#0b1d33; --surface2:#0e2542;
+      --ink:#eef4fb; --ink2:#c3d2e4; --muted:#8fa5bd;
+      --line:#1d3458; --line-soft:#16293f;
+      --accent:#4da3ff; --accent-ink:#7db9ff;
+      --chip:#12283f;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --hero-bg:linear-gradient(135deg,#050f1f 0%,#081f3d 55%,#082f47 100%);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Sora",system-ui,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--accent-ink)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 86%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .brand{font-family:"Sora";font-weight:800;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-.02em;white-space:nowrap}
+  .brand span{color:var(--accent)}
+  .navlinks{display:flex;gap:26px;flex-wrap:wrap}
+  .navlinks a{color:var(--ink2);text-decoration:none;font-size:14px;font-weight:500}
+  .navlinks a:hover{color:var(--accent-ink)}
+  @media(max-width:640px){
+    nav .wrap{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px;row-gap:6px}
+    .navlinks{gap:14px}
+    .navlinks a{font-size:13px}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--hero-bg);color:#eaf3fd;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(640px 300px at 85% -10%,rgba(23,182,214,.28),transparent 60%),radial-gradient(500px 260px at 8% 115%,rgba(29,111,224,.30),transparent 60%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1;padding:74px 22px 64px}
+  .hero .role{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#7fd4ea;margin:0 0 18px}
+  .hero h1{font-size:clamp(38px,6.4vw,64px);font-weight:800;letter-spacing:-.025em;max-width:820px}
+  .hero h1 .grad{background:linear-gradient(92deg,#5db2ff,#2fd3f2);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lede{font-size:clamp(16px,2.2vw,19px);color:#c6d9ee;max-width:640px;margin:22px 0 0}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;font-size:14px;color:#a9c2dc}
+  .hero .meta b{color:#eaf3fd;font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:14.5px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, box-shadow .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:linear-gradient(92deg,#1d6fe0,#17a8d6);color:#fff;box-shadow:0 8px 22px rgba(23,140,200,.35)}
+  .btn-ghost{background:rgba(255,255,255,.06);color:#eaf3fd;border-color:rgba(255,255,255,.22)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+  .stat{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);border-radius:12px;padding:16px 18px}
+  .stat .n{font-family:"Sora";font-size:26px;font-weight:800;color:#fff}
+  .stat .l{font-size:12.5px;color:#a9c2dc;margin-top:2px;line-height:1.45}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- sections ---------- */
+  section{padding:70px 0 8px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+  .sec-head h2{font-size:clamp(26px,3.6vw,34px);font-weight:800;letter-spacing:-.02em}
+  .sec-head .tag{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .sec-sub{color:var(--ink2);max-width:680px;margin:6px 0 30px}
+
+  /* about + skills */
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:var(--shadow)}
+  .card h3{font-size:17px;margin-bottom:12px}
+  .card p{color:var(--ink2);margin:0 0 12px}
+  .card p:last-child{margin-bottom:0}
+  .skill-group{margin-bottom:18px}
+  .skill-group:last-child{margin-bottom:0}
+  .skill-group .g{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{background:var(--chip);border:1px solid var(--line-soft);color:var(--ink);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:500}
+
+  /* timeline */
+  .timeline{display:flex;flex-direction:column;gap:0;margin-top:6px}
+  .titem{display:grid;grid-template-columns:170px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line-soft)}
+  .titem:last-child{border-bottom:none}
+  @media(max-width:640px){.titem{grid-template-columns:1fr;gap:6px}}
+  .titem .when{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);padding-top:3px;line-height:1.6}
+  .titem h3{font-size:17.5px}
+  .titem .org{color:var(--accent-ink);font-weight:600;font-size:14.5px;margin:2px 0 8px}
+  .titem p{color:var(--ink2);margin:0;max-width:720px}
+  .titem ul{margin:8px 0 0;padding-left:18px;color:var(--ink2)}
+  .titem li{margin:3px 0}
+
+  /* filters */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 26px}
+  .fbtn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink2);border-radius:999px;padding:8px 16px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+  .fbtn:hover{border-color:var(--accent);color:var(--ink)}
+  .fbtn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+  @media (prefers-color-scheme: dark){.fbtn.active{background:#1d6fe0;border-color:#1d6fe0}}
+
+  /* project grid */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .proj{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .proj.hide{display:none}
+  .tile{height:118px;background:linear-gradient(120deg,var(--tile-a),var(--tile-b));display:flex;align-items:flex-end;justify-content:space-between;padding:14px 16px;color:#fff;position:relative}
+  .tile .mono-big{font-family:"Sora";font-weight:800;font-size:30px;letter-spacing:-.02em;opacity:.95;line-height:1}
+  .tile .cat{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);padding:3px 9px;border-radius:999px}
+  .tile.t2{--tile-a:#123a2e;--tile-b:#0e6b57}
+  .tile.t3{--tile-a:#3d2a10;--tile-b:#7a5210}
+  .tile.t4{--tile-a:#2c1454;--tile-b:#5b2ea6}
+  .tile.t5{--tile-a:#4a1230;--tile-b:#8a2050}
+  .tile.t6{--tile-a:#0f3050;--tile-b:#14607e}
+  .proj .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .proj h3{font-size:18.5px;letter-spacing:-.01em}
+  .proj .status{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+  .proj p{color:var(--ink2);margin:0;font-size:14.5px;flex:1}
+  .stack{display:flex;flex-wrap:wrap;gap:6px}
+  .stack span{font-family:"JetBrains Mono",monospace;font-size:11.5px;background:var(--surface2);border:1px solid var(--line-soft);border-radius:6px;padding:2px 8px;color:var(--ink2)}
+  .featured{grid-column:1/-1}
+  @media(min-width:761px){
+    .featured{display:grid;grid-template-columns:300px 1fr}
+    .featured .tile{height:100%;min-height:190px;align-items:flex-start;flex-direction:column;gap:12px}
+    .featured .tile .mono-big{font-size:40px}
+  }
+  .count-note{color:var(--muted);font-size:13.5px;margin-top:16px}
+
+  /* oss */
+  .oss-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.oss-list{grid-template-columns:1fr}}
+  .oss{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .oss h3{font-size:15.5px;margin-bottom:4px}
+  .oss h3 a{color:var(--ink);text-decoration:none}
+  .oss h3 a:hover{color:var(--accent-ink)}
+  .oss p{color:var(--ink2);font-size:14px;margin:0}
+  .oss .badge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;padding:2px 8px;border-radius:999px;margin-bottom:8px}
+  .badge.merged{background:#e3f5ec;color:#0d6b3f;border:1px solid #bfe6d2}
+  .badge.open{background:#e7eef8;color:#0b57b5;border:1px solid #c6daf5}
+  @media (prefers-color-scheme: dark){
+    .badge.merged{background:#0d2c1e;color:#5fd598;border-color:#17452e}
+    .badge.open{background:#12283f;color:#7db9ff;border-color:#1d3a5c}
+  }
+
+  /* contact */
+  .contact{background:var(--hero-bg);border-radius:16px;color:#eaf3fd;padding:38px 34px;margin:26px 0 0;position:relative;overflow:hidden}
+  .contact h2{font-size:clamp(24px,3.4vw,32px);color:#fff}
+  .contact p{color:#c6d9ee;max-width:560px;margin:10px 0 0}
+  .contact .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  footer{padding:34px 0 44px;color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">irtaza<span>.</span></a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#opensource">Open Source</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="role">Software Engineer · Co-Founder, SketchToStack</p>
+    <h1>Syed Muhammad<br/>Irtaza <span class="grad">Shahid</span></h1>
+    <p class="lede">I build web platforms, mobile apps and business systems that real companies run on — POS networks, real-estate portals, ERPs — alongside research work in AI-based software vulnerability detection.</p>
+    <div class="meta">
+      <span>📍 <b>Lahore, Pakistan</b></span>
+      <span>🎓 <b>BS Software Engineering</b> — COMSATS Lahore, 7th semester</span>
+      <span>💼 <b>Co-Founder</b> — SketchToStack</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">View my projects</a>
+      <a class="btn btn-ghost" href="mailto:syedirtaza080@gmail.com">syedirtaza080@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/syed-irtaza-124160272" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/syed-irtaza7" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">14</div><div class="l">Projects across web, mobile, POS, AI &amp; games</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">Branches running on one POS I helped build — Pizza Venue</div></div>
+      <div class="stat"><div class="n">1st</div><div class="l">Open-source PR merged — plus 3 more under review</div></div>
+      <div class="stat"><div class="n">2027</div><div class="l">Graduating — BS Software Engineering, COMSATS Lahore</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head"><h2>About</h2><span class="tag">Who I am</span></div>
+    <div class="about-grid">
+      <div class="card">
+        <h3>Engineer first, founder second</h3>
+        <p>I'm a final-year Software Engineering student at COMSATS Lahore and co-founder of <b>SketchToStack</b>, a software agency building custom web and mobile products for businesses in Pakistan and abroad. With a small, AI-assisted team, we ship production systems fast — point-of-sale networks, real-estate ERPs, investor portals and automation tools.</p>
+        <p>On the research side, I'm developing an AI system that detects vulnerabilities in source code by combining static analysis (Joern) with CodeBERT and large language models. I also contribute to open source — my first pull request was merged in November 2026, with more under review at projects like LangChain and Open Design.</p>
+        <p>Before SketchToStack, I completed a MERN stack internship at Torix Solutions in Lahore, working on production web applications.</p>
+      </div>
+      <div class="card">
+        <h3>Skills</h3>
+        <div class="skill-group">
+          <div class="g">Frontend &amp; Web</div>
+          <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">JavaScript</span><span class="chip">Tailwind CSS</span><span class="chip">Node.js</span><span class="chip">MongoDB</span><span class="chip">MERN Stack</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="g">Mobile &amp; Desktop</div>
+          <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Firebase</span><span class="chip">Electron</span><span class="chip">SQL</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="g">AI &amp; Backend</div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">CodeBERT</span><span class="chip">LLMs</span><span class="chip">Joern</span><span class="chip">Gemini OCR</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="g">Languages, Games &amp; Design</div>
+          <div class="chips"><span class="chip">C++</span><span class="chip">Java</span><span class="chip">C#</span><span class="chip">Unity 6</span><span class="chip">Figma</span><span class="chip">Git &amp; GitHub</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head"><h2>Experience</h2><span class="tag">Where I've worked</span></div>
+    <div class="timeline">
+      <div class="titem">
+        <div class="when">2026 — Present</div>
+        <div>
+          <h3>Co-Founder &amp; Software Engineer</h3>
+          <div class="org">SketchToStack — Software Agency</div>
+          <p>Co-founded a 4-person software agency delivering custom web platforms, mobile apps, POS &amp; KDS systems, real-estate software and AI automation for clients in Pakistan and internationally. Our process runs Sketch → Build (with weekly demos) → Deploy → Grow, with a 15-day post-launch warranty on every project.</p>
+          <ul>
+            <li>Shipped 8+ client systems, including a 5-branch restaurant POS and a real-estate investor portal with online payments</li>
+            <li>Build with AI coding tools so a small team delivers at the pace of a much larger one</li>
+          </ul>
+        </div>
+      </div>
+      <div class="titem">
+        <div class="when">Jul – Sep 2026</div>
+        <div>
+          <h3>MERN Stack Developer — Internship</h3>
+          <div class="org">Torix Solutions · Johar Town, Lahore</div>
+          <p>Two-month internship (20 July – 20 September 2026) working as a MERN stack developer — building and maintaining web applications with MongoDB, Express, React and Node.js as part of a professional development team.</p>
+        </div>
+      </div>
+      <div class="titem">
+        <div class="when">2023 — Feb 2027</div>
+        <div>
+          <h3>BS Software Engineering</h3>
+          <div class="org">COMSATS University Islamabad, Lahore Campus</div>
+          <p>Currently in the 7th semester. Coursework and projects spanning web and mobile development, databases, software quality and AI — including a final-year research project on AI-based software vulnerability detection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-head"><h2>Projects</h2><span class="tag">14 projects · Resume + SketchToStack</span></div>
+    <p class="sec-sub">A combined set from my resume and my work at SketchToStack — each project appears once. Client systems are production software used by real businesses; the rest are products, research and design work of my own.</p>
+
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="fbtn active" data-filter="all">All 14</button>
+      <button class="fbtn" data-filter="web">Web &amp; E-Commerce</button>
+      <button class="fbtn" data-filter="pos">POS &amp; Business Systems</button>
+      <button class="fbtn" data-filter="mobile">Mobile</button>
+      <button class="fbtn" data-filter="ai">AI &amp; Research</button>
+      <button class="fbtn" data-filter="creative">Games &amp; Design</button>
+    </div>
+
+    <div class="grid" id="grid">
+
+      <article class="proj featured" data-cats="ai web">
+        <div class="tile"><span class="mono-big">SV</span><span class="cat">AI · Research</span></div>
+        <div class="body">
+          <span class="status">In development · Final-year research</span>
+          <h3>Software Vulnerability Detection System</h3>
+          <p>An AI system that scans source code for security vulnerabilities by combining Joern's static code analysis with CodeBERT embeddings and large language models — flagging risky patterns that rule-based scanners miss, presented through a React dashboard.</p>
+          <div class="stack"><span>React</span><span>Python</span><span>Joern</span><span>CodeBERT</span><span>LLMs</span></div>
+        </div>
+      </article>
+
+      <article class="proj featured" data-cats="web pos">
+        <div class="tile t6"><span class="mono-big">AN</span><span class="cat">Real Estate · Web</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>New Al Noor City — Investor Portal</h3>
+          <p>A complete investor portal for a housing project: customers sign up, complete KYC, browse and select a plot, and pay online — the plot auto-books the moment payment clears. Installment plans, payment ledgers and documents are all handled inside the portal, so investors never need to visit an office in person.</p>
+          <div class="stack"><span>Web Platform</span><span>KYC</span><span>Online Payments</span><span>Ledgers</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="pos">
+        <div class="tile"><span class="mono-big">PV</span><span class="cat">POS · Restaurant</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>Pizza Venue POS</h3>
+          <p>Point-of-sale system running across all 5 branches of Pizza Venue — orders, billing and day-to-day branch operations handled from one consistent setup.</p>
+          <div class="stack"><span>POS</span><span>Multi-branch</span><span>Restaurant</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="web pos">
+        <div class="tile t6"><span class="mono-big">SH</span><span class="cat">Real Estate · ERP</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>Signature Heights — Real Estate ERP</h3>
+          <p>An ERP built for Signature Heights to manage the business end of real estate — inventory, customers and operations in a single system instead of scattered spreadsheets.</p>
+          <div class="stack"><span>ERP</span><span>Web Platform</span><span>Real Estate</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="pos">
+        <div class="tile t2"><span class="mono-big">MS</span><span class="cat">POS · Retail Market</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>Market Sikander Chowk POS</h3>
+          <p>Point-of-sale system for Market Sikander Chowk, a commercial market — built for fast billing and reliable daily operations at the counter.</p>
+          <div class="stack"><span>POS</span><span>Retail</span><span>Billing</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="web pos">
+        <div class="tile t3"><span class="mono-big">QR</span><span class="cat">Restaurant · Web</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>Restaurant QR Ordering</h3>
+          <p>Guests scan a QR code at the table, browse the menu and place their order from their phone — no app install, no waiting for a waiter to take the order.</p>
+          <div class="stack"><span>QR Ordering</span><span>Web App</span><span>Restaurant</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="pos">
+        <div class="tile t3"><span class="mono-big">GM</span><span class="cat">POS · Bakery</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>GM Bakery POS</h3>
+          <p>Point-of-sale system tailored for GM Bakery — quick counter billing suited to a bakery's fast-moving, item-heavy sales.</p>
+          <div class="stack"><span>POS</span><span>Bakery</span><span>Billing</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="web pos">
+        <div class="tile t2"><span class="mono-big">SM</span><span class="cat">Education · Web</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>School Management System</h3>
+          <p>A management system for schools covering the everyday administration of students, staff and academic records in one place.</p>
+          <div class="stack"><span>Web Platform</span><span>Education</span><span>Management</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="web">
+        <div class="tile t5"><span class="mono-big">JE</span><span class="cat">E-Commerce · Web</span></div>
+        <div class="body">
+          <span class="status">SketchToStack · Client system</span>
+          <h3>Jewellery E-Commerce</h3>
+          <p>An online store for a jewellery business — product catalogues and a shopping experience designed around high-value, visual products.</p>
+          <div class="stack"><span>E-Commerce</span><span>Web Store</span><span>Catalogue</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="web">
+        <div class="tile"><span class="mono-big">SE</span><span class="cat">E-Commerce · Web</span></div>
+        <div class="body">
+          <span class="status">Resume project</span>
+          <h3>ShopEase</h3>
+          <p>A full-stack e-commerce web app with product browsing and a clean, responsive storefront — built with React on the front end and MongoDB behind it.</p>
+          <div class="stack"><span>React</span><span>Tailwind CSS</span><span>MongoDB</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="mobile">
+        <div class="tile t2"><span class="mono-big">LF</span><span class="cat">Mobile · Flutter</span></div>
+        <div class="body">
+          <span class="status">Resume + SketchToStack</span>
+          <h3>Lost &amp; Found Hub</h3>
+          <p>A Flutter app that helps people report lost items and reunite found ones with their owners — postings, search and matching in a single hub.</p>
+          <div class="stack"><span>Flutter</span><span>Dart</span><span>SQL</span><span>MongoDB</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="mobile">
+        <div class="tile t3"><span class="mono-big">BB</span><span class="cat">Mobile · Flutter</span></div>
+        <div class="body">
+          <span class="status">Resume + SketchToStack</span>
+          <h3>Budget Buddy</h3>
+          <p>A personal finance app for tracking spending and staying on budget, with data synced through Firebase.</p>
+          <div class="stack"><span>Flutter</span><span>Dart</span><span>Firebase</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="creative">
+        <div class="tile t4"><span class="mono-big">WM</span><span class="cat">Game · Unity</span></div>
+        <div class="body">
+          <span class="status">Resume project</span>
+          <h3>Witch's Manor</h3>
+          <p>A game built in Unity 6 with C# — an atmospheric manor setting with gameplay scripted from scratch.</p>
+          <div class="stack"><span>Unity 6</span><span>C#</span><span>Game Dev</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cats="creative">
+        <div class="tile t5"><span class="mono-big">SS</span><span class="cat">UI/UX · Figma</span></div>
+        <div class="body">
+          <span class="status">Resume project</span>
+          <h3>SwiftSlot</h3>
+          <p>A UI/UX design project created in Figma — a complete slot-booking interface designed end to end, from flows to final screens.</p>
+          <div class="stack"><span>Figma</span><span>UI/UX</span><span>Prototyping</span></div>
+        </div>
+      </article>
+
+    </div>
+    <p class="count-note" id="countNote">Showing all 14 projects.</p>
+  </section>
+
+  <!-- OPEN SOURCE -->
+  <section id="opensource">
+    <div class="sec-head"><h2>Open Source</h2><span class="tag">Contributing back</span></div>
+    <p class="sec-sub">I contribute fixes to open-source projects as <a href="https://github.com/syed-irtaza7" target="_blank" rel="noopener">syed-irtaza7</a> on GitHub — starting with small, well-tested bug fixes.</p>
+    <div class="oss-list">
+      <div class="oss">
+        <span class="badge merged">PR #784 · MERGED</span>
+        <h3><a href="https://github.com/nikhilb2/simple-invoicing-free-gst-billing-software/pull/784" target="_blank" rel="noopener">simple-invoicing — CSV import crash fix ↗</a></h3>
+        <p>My first merged contribution: importing a CSV with extra cells crashed with a 500 error. The fix reports every offending row cleanly instead of crashing.</p>
+      </div>
+      <div class="oss">
+        <span class="badge open">PR #228 · OPEN</span>
+        <h3><a href="https://github.com/langchain-ai/langchain-redis/pull/228" target="_blank" rel="noopener">langchain-redis — RESP3 chat history crash ↗</a></h3>
+        <p>Fixed RedisChatMessageHistory crashing on a second instance under RESP3, where FT.INFO returns index definitions as a dict rather than a list.</p>
+      </div>
+      <div class="oss">
+        <span class="badge open">PR #9372 · OPEN</span>
+        <h3><a href="https://github.com/nexu-io/open-design/pull/9372" target="_blank" rel="noopener">open-design — UUID in insecure contexts ↗</a></h3>
+        <p>Routed 11 unguarded browser-side crypto.randomUUID() calls through the shared safe helper. CI fully green; maintainer welcomed the fix.</p>
+      </div>
+      <div class="oss">
+        <span class="badge open">PR #71 · OPEN</span>
+        <h3><a href="https://github.com/eriknovak/anonipy/pull/71" target="_blank" rel="noopener">anonipy — dead parameter cleanup ↗</a></h3>
+        <p>Removed an unused parameter from the entity-detection API. Behaviour unchanged — 171 tests passing, 97% coverage, lint clean.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact">
+      <h2>Let's build something</h2>
+      <p>Have a project in mind — a web platform, a mobile app, a POS for your business — or a role you think I'd fit? My inbox is open.</p>
+      <div class="links">
+        <a class="btn btn-primary" href="mailto:syedirtaza080@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/syed-irtaza-124160272" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/syed-irtaza7" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="tel:+923131700310">+92 313 1700310</a>
+        <a class="btn btn-ghost" href="https://portfolio.sketchtostack.com/" target="_blank" rel="noopener">SketchToStack ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Syed Muhammad Irtaza Shahid — Lahore, Pakistan</span>
+    <span>Co-Founder, SketchToStack · COMSATS Lahore '27</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var buttons = document.querySelectorAll('.fbtn');
+    var cards = document.querySelectorAll('#grid .proj');
+    var note = document.getElementById('countNote');
+    var names = { all:'all 14 projects', web:'web & e-commerce projects', pos:'POS & business systems', mobile:'mobile apps', ai:'AI & research projects', creative:'games & design projects' };
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        buttons.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        var shown = 0;
+        cards.forEach(function(card){
+          var cats = (card.getAttribute('data-cats') || '').split(' ');
+          var show = (f === 'all') || cats.indexOf(f) !== -1;
+          card.classList.toggle('hide', !show);
+          if (show) shown++;
+        });
+        note.textContent = 'Showing ' + shown + ' of 14 — ' + (names[f] || 'projects') + '.';
+      });
+    });
+  })();
+</script>
+</body>
+</html>
